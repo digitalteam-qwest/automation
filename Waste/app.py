@@ -2,7 +2,10 @@ import re
 
 def toDate(str):
     list = str.split('/')
-    return list[1]+"-"+list[0]+"-"+list[2]
+    try:
+        return list[1]+"-"+list[0]+"-"+list[2]
+    except:
+        return ''
 
 def toBit(str):
     if (str == 'yes'):
@@ -12,7 +15,7 @@ def toBit(str):
     else:
         return 'null'
 
-file = open("data.txt", "r")
+file = open("data.txt", "r", encoding = "ISO-8859-1")
 
 data = re.split("\n", file.read())
 
