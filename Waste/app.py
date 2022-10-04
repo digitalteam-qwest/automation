@@ -22,14 +22,14 @@ data = re.split("\n", file.read())
 file.close()
 
 file = open('query-0.txt', "w")
-file.write('insert into newServiceRollOutAddresses (uprn, Address1, Address2, Street, Locality, Town, PostCode, Ward, USRN, New_Rec_Round, New_Day, New_Recycling_Week, Assisted, Start_Date, End_Date, First_new_service_collection_date , Exception_Property, Proposed_Service, Service_Literature, Communal_No_of_bins_needed) values\n')
+file.write('insert into newServiceRollOutAddresses (uprn, Address1, Address2, Street, Locality, Town, PostCode, Ward, USRN, New_Rec_Round, New_Day, New_Recycling_Week, Assisted, Start_Date, End_Date, First_new_service_collection_date , Exception_Property, Proposed_Service, Service_Literature, Communal_No_of_bins_needed, Presented_on_Blue_Bag_round, Drivers_Proposed_Service, Vehicle_access_collection_issue, Current_Domestic_Service, Current_Recycling_Service, Comments, Literature_to_be_delivered) values\n')
 
 for i in range(1, len(data)):
     if (i % 1000 == 0):
         if (i % 10000 == 0):
             file.close()
             file = open('query-' + str(i//10000) + '.txt', "w")
-        file.write('insert into newServiceRollOutAddresses (uprn, Address1, Address2, Street, Locality, Town, PostCode, Ward, USRN, New_Rec_Round, New_Day, New_Recycling_Week, Assisted, Start_Date, End_Date, First_new_service_collection_date , Exception_Property, Proposed_Service, Service_Literature, Communal_No_of_bins_needed) values\n')
+        file.write('insert into newServiceRollOutAddresses (uprn, Address1, Address2, Street, Locality, Town, PostCode, Ward, USRN, New_Rec_Round, New_Day, New_Recycling_Week, Assisted, Start_Date, End_Date, First_new_service_collection_date , Exception_Property, Proposed_Service, Service_Literature, Communal_No_of_bins_needed, Presented_on_Blue_Bag_round, Drivers_Proposed_Service, Vehicle_access_collection_issue, Current_Domestic_Service, Current_Recycling_Service, Comments, Literature_to_be_delivered) values\n')
         
     row = re.split(r'\t', data[i])
 
